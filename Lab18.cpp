@@ -73,6 +73,40 @@ int main (){
     cin.ignore(); // Clear newline character from input buffer
 
     // Validate user choice
+    if (choice != 1 && choice != 2){
+        cout << "Invalid choice. Exiting." << endl;
+        return 1;
+    }
+
+    char another = 'y';
+    // Loop to input multiple reviews
+    while (tolower(another) == 'y'){
+        double rating;
+        string comment;
+
+        // Get the review rating from the user
+        cout << "Enter review rating 0-5: ";
+        cin >> rating;
+        cin.ignore(); // Clear newline from input buffer
+
+        // Validate rating range
+        if (rating < 0 || rating > 5){
+            cout << "Invalid rating. Please enter a value between 0 and 5." << endl;
+            continue;  // Restart loop if rating is invalid
+        }
+        // Get the review comment
+        cout << "Enter review comments: ";
+        getline(cin, comment);
+
+        // Add the new review node based on user's choice
+        if (choice == 1)
+        addAtHead(head, rating, comment);
+        else
+        addAtTail(head, rating, comment);
+
+        // Ask if the user wants to enter another review
+
+    }
 
 
     cout << "life is beautiful\n";

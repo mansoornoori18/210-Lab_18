@@ -28,6 +28,28 @@ void addAtTail(ReviewNode*& head, double rating, const string& comment){
         temp->next = newNode;
     }
 }
+// Function to output all reviews and calculate the average rating
+void outputReviews(ReviewNode* head){
+    if (head == nullptr){
+        cout << "No reviews to display." << endl;
+        return;
+    }
+    cout << "Outputting all reviews:" << endl;
+
+    ReviewNode* current = head;
+    int count = 0;
+    double total = 0.0;
+
+    // Traverse the linked list
+    while (current != nullptr) {
+        count++;
+        // Output the review number, rating (1 decimal place), and comment
+        cout << "    > Review #" << count << ": " << fixed << setprecision(1) << current->rating << ": " << current->comment << endl;
+        total += current->rating;  // Sum ratings for average calculation
+        current = current->next;
+    }
+    
+}
 
 
 

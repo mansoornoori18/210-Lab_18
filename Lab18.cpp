@@ -105,12 +105,15 @@ int main (){
         addAtTail(head, rating, comment);
 
         // Ask if the user wants to enter another review
-
+        cout << "Enter another review? Y/N: ";
+        cin >> another;
+        cin.ignore(); // Clear newline from input buffer
     }
+    // Output all the reviews and the average rating
+    outputReviews(head);
 
-
-    cout << "life is beautiful\n";
+    // Clean up allocated memory
+    freeList(head);
 
     return 0;
-
 }
